@@ -381,18 +381,94 @@
     letter-spacing: 0.03em;
   }
 
+  /* ── CoE Mentors ── */
+  .coe-mentors-section { background: rgba(255,255,255,0.015); }
+  .coe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .mentor-incharge {
+    display: block;
+    margin-top: 0.5rem;
+    background: rgba(192,57,43,0.1);
+    border: 1px solid rgba(192,57,43,0.3);
+    border-radius: 20px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    color: var(--pulse);
+    letter-spacing: 0.02em;
+  }
+  .mentor-student {
+    margin: 0.8rem 0.8rem 0;
+    background: rgba(212,168,83,0.06);
+    border: 1px solid rgba(212,168,83,0.2);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-align: left;
+  }
+  .student-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .student-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cream);
+  }
+  .student-num {
+    font-size: 1rem;
+    color: var(--gold);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+  }
+  .student-num:hover { color: var(--cream); }
+  .student-ps {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.88rem;
+    font-family: 'DM Mono', monospace;
+    color: var(--cream);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    padding-top: 0.4rem;
+    border-top: 1px solid rgba(212,168,83,0.15);
+  
+    margin-top: 0.5rem;
+    background: rgba(192,57,43,0.1);
+    border: 1px solid rgba(192,57,43,0.3);
+    border-radius: 20px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    color: var(--pulse);
+    letter-spacing: 0.02em;
+  }
+
   /* ── Partners ── */
-  .partners-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 3rem; align-items: center; justify-content: center; }
+  .partners-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; align-items: center; justify-content: center; }
   .partner-chip {
     padding: 0.6rem 1.5rem;
     background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(212,168,83,0.15);
+    border: 1px solid rgba(212,168,83,0.25);
     border-radius: 2px;
     font-size: 0.85rem;
     font-weight: 500;
-    color: rgba(250,246,239,0.6);
+    color: rgba(250,246,239,0.75);
     letter-spacing: 0.05em;
     transition: all 0.2s;
+    white-space: nowrap;
   }
   .partner-chip:hover { background: rgba(212,168,83,0.08); color: var(--cream); border-color: rgba(212,168,83,0.35); }
 
@@ -694,6 +770,7 @@
     .fees-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
     .mentors-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .mentors-second-row { grid-template-columns: repeat(2, 1fr) !important; max-width: 100% !important; gap: 1rem; }
+    .coe-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .prize-num { font-size: clamp(3.5rem, 18vw, 6rem); }
 
     .register-box { padding: 1.8rem 1.2rem; }
@@ -721,6 +798,7 @@
     <li><a href="#fees">Register</a></li>
     <li><a href="#prize">Prizes</a></li>
     <li><a href="#mentors">Industry Experts</a></li>
+    <li><a href="#coe-mentors">CoE Mentors</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -736,6 +814,7 @@
   <a href="#fees" onclick="closeMenu()">Register</a>
   <a href="#prize" onclick="closeMenu()">Prizes</a>
   <a href="#mentors" onclick="closeMenu()">Industry Experts</a>
+  <a href="#coe-mentors" onclick="closeMenu()">CoE Mentors</a>
   <a href="#faq" onclick="closeMenu()">FAQ</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
@@ -808,7 +887,7 @@
         <p class="section-label">About the Hackathon</p>
         <h2 class="section-title">Innovate.<br>Code. Heal.</h2>
         <p>NadiCare is a one-day HealthTech hackathon that brings together bright minds to solve real-world healthcare challenges using cutting-edge technology. From AI diagnostics to smart monitoring systems, you'll tackle meaningful problems under the guidance of industry mentors.</p>
-        <p>Organised by the IEEE Signal Processing Society at BNMIT in association with COE-Healthcare and Smart Technology, ISTE, EMBS, and the Institute of Engineers (IEI).</p>
+        <p>Organised by the IEEE Signal Processing Society at BNMIT in association with COE-Healthcare and Smart Technology, ISTE, EMBS, IEEE Bangalore Section and the Institute of Engineers (IEI).</p>
         <p>Participants will receive industry mentorship throughout the entire process — from problem statement release to final presentation.</p>
       </div>
       <div class="about-visual">
@@ -1053,6 +1132,98 @@
   </div>
 </section>
 
+<!-- CoE Mentors -->
+<section id="coe-mentors" class="coe-mentors-section">
+  <div class="section-inner">
+    <h2 class="section-title">CoE Mentors</h2>
+    <p style="color:rgba(250,246,239,0.6); margin-bottom: 1rem; line-height:1.8;">Faculty mentors from the Centre of Excellence in Healthcare and Smart Technology. If your team selects a problem statement from a listed company, contact the respective CoE mentor for guidance.</p>
+    <div class="coe-grid">
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="coementor1.jpg" alt="Dr. Jyoti R Munavalli" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">JM</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Dr. Jyoti R Munavalli</div>
+          <div class="mentor-designation">CoE Mentor</div>
+          <div class="mentor-incharge">IIHMR</div>
+          <div class="mentor-incharge">Renalyx</div>
+          <div class="mentor-incharge">TechCrafter</div>
+          <div class="mentor-student"><span class="student-role">Student Coordinator 1</span><span class="student-name">Harsha M S</span><a href="tel:8971330289" class="student-num">+91 89713 30289</a><span class="student-ps">Problem Statements: 5, 6, 7, 8, 9, 10, 14, 15</span></div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="coementor2.jpg" alt="Dr. Bindu S" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">BS</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Dr. Bindu S</div>
+          <div class="mentor-designation">CoE Mentor</div>
+          <div class="mentor-incharge">S-VYASA</div>
+          <div class="mentor-student"><span class="student-role">Student Coordinator 2</span><span class="student-name">Nagaraja M</span><a href="tel:7411023585" class="student-num">+91 74110 23585</a><span class="student-ps">Problem Statements: 16, 17</span></div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="coementor3.jpg" alt="Dr. Lakshmi Bhaskar" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">LB</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Dr. Lakshmi Bhaskar</div>
+          <div class="mentor-designation">CoE Mentor</div>
+          <div class="mentor-incharge">Autoyos</div>
+          <div class="mentor-student"><span class="student-role">Student Coordinator 3</span><span class="student-name">Varshini K</span><a href="tel:9353290949" class="student-num">+91 93532 90949</a><span class="student-ps">Problem Statements: 1, 2, 3, 4</span></div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="coementor4.jpg" alt="Mrs. Sumathi A" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">SA</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Mrs. Sumathi A</div>
+          <div class="mentor-designation">CoE Mentor</div>
+          <div class="mentor-incharge">Subhanu Technologies</div>
+          <div class="mentor-student"><span class="student-role">Student Coordinator</span><span class="student-name">Rochan P</span><a href="tel:8296513313" class="student-num">+91 82965 13313</a><span class="student-ps">Problem Statements: 18, 19</span></div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="coementor5.jpg" alt="Mr. Kiran K N" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">KK</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Mr. Kiran K N</div>
+          <div class="mentor-designation">CoE Mentor</div>
+          <div class="mentor-incharge">GTM4Health</div>
+          <div class="mentor-student"><span class="student-role">Student Coordinator</span><span class="student-name">Kirtan Mohan</span><a href="tel:7019230641" class="student-num">+91 70192 30641</a><span class="student-ps">Problem Statement: 11</span></div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="coementor6.jpg" alt="Mrs. Arpita Kulkarni" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">AK</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Mrs. Arpita Kulkarni</div>
+          <div class="mentor-designation">CoE Mentor</div>
+          <div class="mentor-incharge">Nexstem</div>
+          <div class="mentor-incharge">SkyBrain</div>
+          <div class="mentor-student"><span class="student-role">Student Coordinator</span><span class="student-name">Adhya Prashant</span><a href="tel:9880384784" class="student-num">+91 98803 84784</a><span class="student-ps">Problem Statements: 12, 13, 20, 21, 22</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- Partners -->
 <section id="partners">
   <div class="section-inner">
@@ -1074,6 +1245,7 @@
       <div class="partner-chip">Institution's Innovation Council</div>
       <div class="partner-chip">The Institute of Engineers</div>
       <div class="partner-chip">IEEE BNMIT</div>
+      <div class="partner-chip">IEEE Bangalore Section</div>
     </div>
   </div>
 </section>

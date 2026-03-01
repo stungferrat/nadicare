@@ -299,6 +299,88 @@
   }
   .prize-label { font-family: 'DM Mono', monospace; font-size: 0.9rem; letter-spacing: 0.3em; color: rgba(250,246,239,0.5); text-transform: uppercase; margin-top: 0.5rem; }
 
+  /* ── Mentors ── */
+  .mentors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .mentors-grid .mentor-card:nth-child(5) { grid-column: 1; }
+  .mentors-grid .mentor-card:nth-child(5),
+  .mentors-grid .mentor-card:nth-child(6),
+  .mentors-grid .mentor-card:nth-child(7) {
+    grid-column: span 1;
+  }
+  /* Center the second row of 3 */
+  .mentors-second-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .mentor-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(212,168,83,0.15);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.3s;
+    text-align: center;
+  }
+  .mentor-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(192,57,43,0.4);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  }
+  .mentor-photo-wrap {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: rgba(192,57,43,0.08);
+    position: relative;
+  }
+  .mentor-photo {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+  .mentor-card:hover .mentor-photo { transform: scale(1.05); }
+  .mentor-placeholder {
+    display: none;
+    width: 100%; height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--crimson);
+    background: rgba(192,57,43,0.08);
+    border-bottom: 2px solid rgba(192,57,43,0.2);
+  }
+  .mentor-info {
+    padding: 1.2rem 1rem 1.5rem;
+  }
+  .mentor-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--cream);
+  }
+  .mentor-designation {
+    font-size: 0.9rem;
+    color: rgba(250,246,239,0.6);
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+  }
+  .mentor-company {
+    font-size: 1.0rem;
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.03em;
+  }
+
   /* ── Partners ── */
   .partners-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 3rem; align-items: center; justify-content: center; }
   .partner-chip {
@@ -610,6 +692,8 @@
     .timeline { flex-direction: column; gap: 0; }
 
     .fees-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
+    .mentors-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .mentors-second-row { grid-template-columns: repeat(2, 1fr) !important; max-width: 100% !important; gap: 1rem; }
     .prize-num { font-size: clamp(3.5rem, 18vw, 6rem); }
 
     .register-box { padding: 1.8rem 1.2rem; }
@@ -636,6 +720,7 @@
     <li><a href="#timeline">Timeline</a></li>
     <li><a href="#fees">Register</a></li>
     <li><a href="#prize">Prizes</a></li>
+    <li><a href="#mentors">Industry Experts</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -650,6 +735,7 @@
   <a href="#timeline" onclick="closeMenu()">Timeline</a>
   <a href="#fees" onclick="closeMenu()">Register</a>
   <a href="#prize" onclick="closeMenu()">Prizes</a>
+  <a href="#mentors" onclick="closeMenu()">Industry Experts</a>
   <a href="#faq" onclick="closeMenu()">FAQ</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
@@ -856,6 +942,117 @@
   </div>
 </section>
 
+<!-- Mentors -->
+<section id="mentors">
+  <div class="section-inner">
+    <h2 class="section-title">Industry Experts</h2>
+    <p style="color:rgba(250,246,239,0.6); margin-bottom: 3rem; line-height:1.8;">Industry leaders who will guide and mentor your team throughout the hackathon process.</p>
+    <div class="mentors-grid">
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="mentor1.jpg" alt="Bhanumathy Yellapan" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">BY</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Bhanumathy Yellapan</div>
+          <div class="mentor-designation">Director</div>
+          <div class="mentor-company">Subhanu Technologies</div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="mentor2.jpg" alt="Shashi Bhushan" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">SB</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Shashi Bhushan</div>
+          <div class="mentor-designation">Founder &amp; CEO</div>
+          <div class="mentor-company">GTM4Health</div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="mentor3.jpg" alt="Bharathkumar Hegde" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">BH</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Bharathkumar Hegde, PhD</div>
+          <div class="mentor-designation">Co-Founder</div>
+          <div class="mentor-company">Autoyos</div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="mentor4.jpg" alt="Aloknath De" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">AD</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Dr. Aloknath De</div>
+          <div class="mentor-designation">Founder &amp; CEO</div>
+          <div class="mentor-company">TechCrafter</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mentors-second-row" style="margin-top: 2rem;">
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="mentor5.jpg" alt="Rakesh Jakati" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">RJ</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Rakesh Jakati</div>
+          <div class="mentor-designation">Founder</div>
+          <div class="mentor-company">SkyBrain Neurotech</div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="mentor6.jpg" alt="Soumya Bhattacharya" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">SB</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Soumya Bhattacharjee, PhD</div>
+          <div class="mentor-designation">Mentor</div>
+          <div class="mentor-company">Nexstem</div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="mentor7.jpg" alt="Akash Gajanan Prabhune" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">AP</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Dr. Akash Gajanan Prabhune</div>
+          <div class="mentor-designation">Associate Professor &amp; Lead ADMIRE</div>
+          <div class="mentor-company">IIHMR Bangalore</div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="mentor8.jpg" alt="Dr. Shyam Vasudev Rao" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">SR</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Dr. Shyam Vasudev Rao</div>
+          <div class="mentor-designation">Founder &amp; Director</div>
+          <div class="mentor-company">Renalyx</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- Partners -->
 <section id="partners">
   <div class="section-inner">
@@ -866,13 +1063,16 @@
       <div class="partner-chip">GTM4Health</div>
       <div class="partner-chip">IIHMR Bangalore</div>
       <div class="partner-chip">TechCrafter</div>
+      <div class="partner-chip">Subhanu Technologies</div>
       <div class="partner-chip">Renalyx</div>
       <div class="partner-chip">Nexstem</div>
       <div class="partner-chip">S-VYASA</div>
       <div class="partner-chip">SkyBrain</div>
+      <div class="partner-chip">Indian Society For Technical Education</div>
       <div class="partner-chip">IEEE EMBS</div>
       <div class="partner-chip">EdCell</div>
       <div class="partner-chip">Institution's Innovation Council</div>
+      <div class="partner-chip">The Institute of Engineers</div>
       <div class="partner-chip">IEEE BNMIT</div>
     </div>
   </div>
@@ -973,7 +1173,7 @@
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Email</div>
-          <div class="contact-item-val"><a href="/cdn-cgi/l/email-protection#a7cec2c2c2d4d7d4c5c9caced3e7c0cac6cecb89c4c8ca"><span class="__cf_email__" data-cfemail="7f161a1a1a0c0f0c1d1112160b3f18121e1613511c1012">[email&#160;protected]</span></a></div>
+          <div class="contact-item-val"><span id="em"></span><script>document.getElementById("em").innerHTML="<a href=mail"+"to:ieeespsbnmit@gm"+"ail.com>ieeespsbnmit@gm"+"ail.com</a>";</script></div>
         </div>
       </div>
       <div>

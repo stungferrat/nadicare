@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="NadiCare – A HealthTech Hackathon by IEEE SPS-BNMIT. 14 March 2026, S-Block BNMIT, Bengaluru. Win ₹20,000 prize pool.">
+<meta name="theme-color" content="#1A1208">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline';">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
 <title>NadiCare – A HealthTech Hackathon</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -431,6 +436,7 @@
     text-decoration: none;
     font-family: 'DM Mono', monospace;
     font-weight: 500;
+    white-space: nowrap;
   }
   .student-num:hover { color: var(--cream); }
   .student-ps {
@@ -462,13 +468,12 @@
     padding: 0.6rem 1.5rem;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(212,168,83,0.25);
-    border-radius: 2px;
+    border-radius: 4px;
     font-size: 0.85rem;
     font-weight: 500;
     color: rgba(250,246,239,0.75);
     letter-spacing: 0.05em;
     transition: all 0.2s;
-    white-space: nowrap;
   }
   .partner-chip:hover { background: rgba(212,168,83,0.08); color: var(--cream); border-color: rgba(212,168,83,0.35); }
 
@@ -645,10 +650,10 @@
     color: var(--cream);
   }
   .nav-brand span { color: var(--crimson); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; }
   .nav-links a {
     color: rgba(250,246,239,0.6); text-decoration: none;
-    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.03em;
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--gold); }
@@ -770,7 +775,7 @@
     .fees-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
     .mentors-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .mentors-second-row { grid-template-columns: repeat(2, 1fr) !important; max-width: 100% !important; gap: 1rem; }
-    .coe-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .coe-grid { grid-template-columns: 1fr; gap: 1rem; }
     .prize-num { font-size: clamp(3.5rem, 18vw, 6rem); }
 
     .register-box { padding: 1.8rem 1.2rem; }

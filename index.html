@@ -162,6 +162,13 @@
     transition: all 0.25s;
     cursor: pointer;
   }
+  .btn-closed {
+    background: rgba(255,255,255,0.05);
+    color: rgba(250,246,239,0.4);
+    border: 2px solid rgba(255,255,255,0.1);
+    cursor: not-allowed;
+    display: inline-block;
+  }
   .btn-primary {
     background: var(--crimson);
     color: #fff;
@@ -441,25 +448,14 @@
   .student-num:hover { color: var(--cream); }
   .student-ps {
     display: block;
-    margin-top: 0.4rem;
-    font-size: 0.88rem;
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
     font-family: 'DM Mono', monospace;
     color: var(--cream);
     font-weight: 500;
     letter-spacing: 0.03em;
     padding-top: 0.4rem;
     border-top: 1px solid rgba(212,168,83,0.15);
-  
-    margin-top: 0.5rem;
-    background: rgba(192,57,43,0.1);
-    border: 1px solid rgba(192,57,43,0.3);
-    border-radius: 20px;
-    padding: 0.4rem 0.9rem;
-    font-size: 0.85rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    color: var(--pulse);
-    letter-spacing: 0.02em;
   }
 
   /* ── Partners ── */
@@ -623,6 +619,45 @@
   }
   .faq-item.open .faq-a { max-height: 300px; padding: 1rem 1.5rem 1.4rem; }
 
+  /* ── Scroll Animations ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Back to Top ── */
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    background: var(--crimson);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(192,57,43,0.4);
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .back-to-top:hover { transform: translateY(-3px); background: var(--deep-red); }
+
   /* ── Footer ── */
   footer {
     position: relative; z-index: 2;
@@ -655,8 +690,22 @@
     color: rgba(250,246,239,0.6); text-decoration: none;
     font-size: 0.78rem; font-weight: 500; letter-spacing: 0.03em;
     transition: color 0.2s;
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--crimson);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+    border-radius: 2px;
   }
   .nav-links a:hover { color: var(--gold); }
+  .nav-links a.active { color: var(--cream); }
+  .nav-links a.active::after { transform: scaleX(1); }
 
   /* ── Rules ── */
   .rules-section { background: rgba(255,255,255,0.015); }
@@ -767,6 +816,7 @@
     .stat:nth-child(odd) { border-right: 1px solid rgba(212,168,83,0.1); }
 
     .section-inner { padding: 3.5rem 1.2rem; }
+    .section-title { font-size: clamp(1.6rem, 6vw, 2.5rem); }
     .about-grid, .contact-grid, .rules-grid { grid-template-columns: 1fr; gap: 2rem; }
     .tl-item { min-width: 100%; border-top: none; border-left: 2px solid rgba(212,168,83,0.2); padding: 1rem 1.5rem; }
     .tl-item.active { border-left-color: var(--crimson); }
@@ -775,12 +825,22 @@
     .fees-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
     .mentors-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .mentors-second-row { grid-template-columns: repeat(2, 1fr) !important; max-width: 100% !important; gap: 1rem; }
+    .mentor-name { font-size: 1rem; }
+    .mentor-company { font-size: 0.85rem; }
     .coe-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .mentor-student { margin: 0.6rem 0.5rem 0.5rem; }
+    .student-num { font-size: 0.95rem; white-space: nowrap; }
     .prize-num { font-size: clamp(3.5rem, 18vw, 6rem); }
+
+    .partners-grid { gap: 0.6rem; }
+    .partner-chip { font-size: 0.78rem; padding: 0.5rem 1rem; }
 
     .register-box { padding: 1.8rem 1.2rem; }
     .cta-group { flex-direction: column; align-items: center; }
     .btn { width: 100%; max-width: 280px; text-align: center; }
+    .btn-closed { font-size: 0.8rem; }
+
+    .back-to-top { bottom: 1.2rem; right: 1.2rem; width: 38px; height: 38px; font-size: 1rem; }
 
     footer { font-size: 0.7rem; padding: 1.5rem 1rem; }
   }
@@ -789,6 +849,12 @@
     .stat { min-width: 100%; border-right: none; }
     .stat:nth-child(odd) { border-right: none; }
     .notes-box { padding: 1.2rem; }
+    .mentors-grid { grid-template-columns: 1fr; }
+    .mentors-second-row { grid-template-columns: 1fr !important; }
+    .mentor-info { padding: 1rem 0.8rem 1.2rem; }
+    .mentor-incharge { font-size: 0.78rem; }
+    .countdown-num { min-width: 70px; font-size: 2.5rem; }
+    .countdown-sep { font-size: 2rem; }
   }
 </style>
 </head>
@@ -843,7 +909,7 @@
       <span>14 March 2026 &nbsp;·&nbsp; 9:00 AM – 6:00 PM &nbsp;·&nbsp; S-Block, BNMIT</span>
     </div>
     <div class="cta-group">
-      <a href="https://forms.gle/e2Uw2Ch4a8CY6rDb9" class="btn btn-primary" target="_blank">Register Now</a>
+      <span class="btn btn-closed">Registrations Closed · See You on 14 March! 🎉</span>
       <a href="#about" class="btn btn-outline">Learn More</a>
     </div>
   </div>
@@ -1008,7 +1074,7 @@
       </div>
     </div>
     <div style="text-align:center; margin-top: 3rem;">
-      <a href="https://forms.gle/e2Uw2Ch4a8CY6rDb9" class="btn btn-primary" target="_blank" style="font-size: 1rem; padding: 1rem 3rem;">Register Your Team →</a>
+      <span class="btn btn-closed" style="font-size: 1rem; padding: 1rem 3rem;">Registrations Closed · See You on 14 March! 🎉</span>
     </div>
   </div>
 </section>
@@ -1104,7 +1170,7 @@
         </div>
         <div class="mentor-info">
           <div class="mentor-name">Soumya Bhattacharjee, PhD</div>
-          <div class="mentor-designation">CEO</div>
+          <div class="mentor-designation">Mentor</div>
           <div class="mentor-company">Nexstem</div>
         </div>
       </div>
@@ -1151,7 +1217,7 @@
         </div>
         <div class="mentor-info">
           <div class="mentor-name">Dr. Jyoti R Munavalli</div>
-          <div class="mentor-designation"></div>
+          <div class="mentor-designation">CoE Mentor</div>
           <div class="mentor-incharge">IIHMR</div>
           <div class="mentor-incharge">Renalyx</div>
           <div class="mentor-incharge">TechCrafter</div>
@@ -1166,7 +1232,7 @@
         </div>
         <div class="mentor-info">
           <div class="mentor-name">Dr. Bindu S</div>
-          <div class="mentor-designation"></div>
+          <div class="mentor-designation">CoE Mentor</div>
           <div class="mentor-incharge">S-VYASA</div>
           <div class="mentor-student"><span class="student-role">Student Coordinator 2</span><span class="student-name">Nagaraja M</span><a href="tel:7411023585" class="student-num">+91 74110 23585</a><span class="student-ps">Problem Statements: 16, 17</span></div>
         </div>
@@ -1179,7 +1245,7 @@
         </div>
         <div class="mentor-info">
           <div class="mentor-name">Dr. Lakshmi Bhaskar</div>
-          <div class="mentor-designation"></div>
+          <div class="mentor-designation">CoE Mentor</div>
           <div class="mentor-incharge">Autoyos</div>
           <div class="mentor-student"><span class="student-role">Student Coordinator 3</span><span class="student-name">Varshini K</span><a href="tel:9353290949" class="student-num">+91 93532 90949</a><span class="student-ps">Problem Statements: 1, 2, 3, 4</span></div>
         </div>
@@ -1192,7 +1258,7 @@
         </div>
         <div class="mentor-info">
           <div class="mentor-name">Mrs. Sumathi A</div>
-          <div class="mentor-designation"></div>
+          <div class="mentor-designation">CoE Mentor</div>
           <div class="mentor-incharge">Subhanu Technologies</div>
           <div class="mentor-student"><span class="student-role">Student Coordinator</span><span class="student-name">Rochan P</span><a href="tel:8296513313" class="student-num">+91 82965 13313</a><span class="student-ps">Problem Statements: 18, 19</span></div>
         </div>
@@ -1205,7 +1271,7 @@
         </div>
         <div class="mentor-info">
           <div class="mentor-name">Mr. Kiran K N</div>
-          <div class="mentor-designation"></div>
+          <div class="mentor-designation">CoE Mentor</div>
           <div class="mentor-incharge">GTM4Health</div>
           <div class="mentor-student"><span class="student-role">Student Coordinator</span><span class="student-name">Kirtan Mohan</span><a href="tel:7019230641" class="student-num">+91 70192 30641</a><span class="student-ps">Problem Statement: 11</span></div>
         </div>
@@ -1218,7 +1284,7 @@
         </div>
         <div class="mentor-info">
           <div class="mentor-name">Mrs. Arpita Kulkarni</div>
-          <div class="mentor-designation"></div>
+          <div class="mentor-designation">CoE Mentor</div>
           <div class="mentor-incharge">Nexstem</div>
           <div class="mentor-incharge">SkyBrain</div>
           <div class="mentor-student"><span class="student-role">Student Coordinator</span><span class="student-name">Adhya Prashant</span><a href="tel:9880384784" class="student-num">+91 98803 84784</a><span class="student-ps">Problem Statements: 12, 13, 20, 21, 22</span></div>
@@ -1327,9 +1393,6 @@
       </div>
 
     </div>
-    <div style="margin-top: 2rem;">
-      <a href="https://forms.gle/e2Uw2Ch4a8CY6rDb9" class="btn btn-primary" target="_blank">Register Now →</a>
-    </div>
   </div>
 </section>
 
@@ -1357,14 +1420,14 @@
         <div class="register-box">
           <h3>Ready to Participate?</h3>
           <p>Form teams of 2–3 and register before the deadline</p>
-          <div class="register-deadline">⏰ DEADLINE: 28 FEBRUARY 2026</div>
-          <br>
-          <a href="https://forms.gle/e2Uw2Ch4a8CY6rDb9" class="btn btn-primary" target="_blank" style="width:100%; display:block;">Register Now</a>
+          <div class="register-deadline">🔒 REGISTRATIONS CLOSED · SEE YOU ON 14 MARCH! 🎉</div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
 <footer>
   <p>© 2026 NadiCare Hackathon &nbsp;·&nbsp; IEEE SPS-BNMIT &nbsp;·&nbsp; B.N.M. Institute of Technology, Bengaluru</p>
@@ -1412,6 +1475,42 @@
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.section-inner, .mentor-card, .fee-card, .tl-item, .info-card, .faq-item, .partner-chip, .coe-card');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => { el.classList.add('reveal'); revealObserver.observe(el); });
+
+  // Back to top
+  const backBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   // FAQ accordion
   function toggleFaq(el) {

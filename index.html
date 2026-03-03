@@ -314,22 +314,8 @@
   /* ── Mentors ── */
   .mentors-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-  }
-  .mentors-grid .mentor-card:nth-child(5) { grid-column: 1; }
-  .mentors-grid .mentor-card:nth-child(5),
-  .mentors-grid .mentor-card:nth-child(6),
-  .mentors-grid .mentor-card:nth-child(7) {
-    grid-column: span 1;
-  }
-  /* Center the second row of 3 */
-  .mentors-second-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    max-width: 100%;
-    margin: 0 auto;
   }
   .mentor-card {
     background: rgba(255,255,255,0.03);
@@ -824,9 +810,6 @@
 
     .fees-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
     .mentors-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .mentors-second-row { grid-template-columns: repeat(2, 1fr) !important; max-width: 100% !important; gap: 1rem; }
-    .mentor-name { font-size: 1rem; }
-    .mentor-company { font-size: 0.85rem; }
     .coe-grid { grid-template-columns: 1fr; gap: 1rem; }
     .mentor-student { margin: 0.6rem 0.5rem 0.5rem; }
     .student-num { font-size: 0.95rem; white-space: nowrap; }
@@ -850,7 +833,6 @@
     .stat:nth-child(odd) { border-right: none; }
     .notes-box { padding: 1.2rem; }
     .mentors-grid { grid-template-columns: 1fr; }
-    .mentors-second-row { grid-template-columns: 1fr !important; }
     .mentor-info { padding: 1rem 0.8rem 1.2rem; }
     .mentor-incharge { font-size: 0.78rem; }
     .countdown-num { min-width: 70px; font-size: 2.5rem; }
@@ -1147,10 +1129,6 @@
         </div>
       </div>
 
-    </div>
-
-    <div class="mentors-second-row" style="margin-top: 2rem;">
-
       <div class="mentor-card">
         <div class="mentor-photo-wrap">
           <img src="mentor5.jpg" alt="Rakesh Jakati" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -1196,6 +1174,18 @@
           <div class="mentor-name">Dr. Shyam Vasudev Rao</div>
           <div class="mentor-designation">Founder &amp; Director</div>
           <div class="mentor-company">Renalyx</div>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-photo-wrap">
+          <img src="mentor9.jpg" alt="Dr. Manjunath N K" class="mentor-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="mentor-placeholder">MN</div>
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Dr. Manjunath N K</div>
+          <div class="mentor-designation">Vice Chancellor</div>
+          <div class="mentor-company">S-VYASA</div>
         </div>
       </div>
 
